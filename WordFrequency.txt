@@ -1,0 +1,111 @@
+Well, let's experiment with the idea that the more often a word
+or term appears in a body of text,
+the more semantically significant that word is.
+In other words, the frequency of a word might tell us something
+about the meaning of the text.
+So our friendly robot has been brushing up on his Shakespeare
+lately and
+he wants to understand this quote from Romeo and Juliet.
+Now we can start doing some frequency analysis by simply
+counting the occurrence of each word in the text.
+And notice that I've ignored punctuation and casing and
+if there were any non-alphabetic characters such as numerals,
+I've ignored them,
+too, we can visualize those word frequencies in a column chart.
+And actually, what we probably do is shift the more frequent
+words to the beginning of the chart and
+show them in descending order of frequency as a Pareto chart.
+Now note that one of the most frequent words is a, and
+we've also got words like that, as, and
+other common words that aren't really very useful for
+extracting semantic meaning from the text.
+Now we call these stop words, and if we removed them,
+we get a cleaner picture of what the text is about.
+The most frequent word is name, which is really what Julia is
+talking about in this part of the play.
+So here I am in a jupyter Notebooks, and what I'm gonna do
+is first of all I'm gonna load a text documents.
+So I've got some code here, where I am just simply going to
+get this text document that is called Moon.txt and
+I am going to print onto the screen.
+So we will run that cell and
+here is what that document looks like.
+You can see as we sail on this new sea because there is new
+knowledge.
+It's actually a speech that John F Kennedy
+gave as he was starting the race to the moon.
+So we got some text there, and what we really wanna do is kind
+of analyze the frequency of the words that are in this text.
+And before I'm gonna do that, I'm gonna normalize the text, so
+we're gonna get rid of any numeric digits, so for
+example we can see in here there's a 35 years ago,
+we wanna get rid of that 35.
+We wanna get rid of all the punctuation like the question
+marks and the exclamation marks and so on.
+And we'll then just get that normalized text and
+print that out.
+So I run that code, and what I've done is I've used
+the punctuation library from the string library.
+So I've used that to go and identify any of the punctuation,
+I've also converted everything to lower case,
+I've got the two lower here.
+And I've only included the words that are not digits,
+there's a little bit of code there, too.
+I've normalized the text, and
+you can see here's the normalized text.
+It doesn't have any numerals or any punctuation, and
+everything is lower case.
+So we've got something to work with, wo what I want to do is I
+want to analyze this text and find out the frequency of each
+individual word that appears in there.
+And to do that I'm gonna use this nltk library in natural
+language nltk library.
+So we're gonna use that and to go and get the data from our
+text, we're gonna use that to tokenize the.
+The word first of all tokenize each of the individual words out
+of the text and then we're gonna use this FreqDist function to
+get the frequency distribution of the individual words that
+are in there.
+We'll convert them into a DataFrame, and then we'll just
+simply print out that DataFrame, so let's do that.
+And it's downloaded those packages and installed it and
+then here's the actual output.
+So it's gone through, here's each of the words, and
+here's the number of times that word appears in that text.
+So we've got our frequency, now let's actually visualize that.
+We'll show it as a Pareto chart which is basically just a column
+chart with the more frequent items to the left-hand side.
+So we'll go ahead and display first of all, the top 60 words,
+I think,
+just to get an idea of what the most important words are.
+And here's my Pareto chart,
+now you possibly can't read this very well, but
+the first couple of words are the and and of and to.
+In other words, words that aren't really very useful, and
+they're certainly frequently used words, but they're
+not really helping me understand what the text is about.
+So I wanna remove these stopwords, as they're called,
+I wanna get rid of words like a and then and so
+on that don't really help me.
+And to do that again from the nltk,
+there's a stop words set of data that I can download.
+So that's a standard set of stop words, and
+what I'm gonna do is I'm gonna filter those words out.
+So I'm gonna just effectively create a string that contains
+all the words that are in there,
+as long as they're not also in the stop words library.
+So we'll get rid of all the stop words.
+And then we'll just do what we did before.
+We'll get the frequency distribution of the remaining
+words without the stop words.
+And then we'll plot the top 60 of those as a Pareto chart, so
+let's go ahead and do that.
+And we get our Pareto chart right here, and
+now I can see that the first few words are new, go,
+space, and if I look a little further down there I can see
+there's things like moon and science.
+So the more popular words in this text,
+it's not exact Indication of what the topic's about,
+but it can give me some idea.
+I know it's something new, it's about space, it's about science,
+so I can get sense of what document is about.
